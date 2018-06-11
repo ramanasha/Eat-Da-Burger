@@ -22,9 +22,9 @@ function objToSql(ob){
 var orm = {
     all: function(tableInput, cb){
         var queryString = 'SELECT * FROM ' + tableInput + ';';
-        connection.query(queryString, function(err, resutl){
+        connection.query(queryString, function(err, result){
             if(err) throw err;
-            cb(Result);
+            cb(result);
         })
     },
 

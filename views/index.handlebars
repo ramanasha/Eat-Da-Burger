@@ -13,10 +13,8 @@
                             <pre>{{this.id}}.{{this.burger_name}}</pre>
                         </div>
                         <div class="col-md-3 text-center">
-                            <form class="devour-form button-size">
-                                <input type="hidden" class="burger_id" value={{this.id}}>
-                                <br>
-                                <button type="submit" class="btn btn-primary">Devour it!</button>
+                            <form class="devour-form button-size" action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                                <button type="submit" class="btn btn-primary">Devour It!</button>
                             </form>
                         </div>
                     {{/unless}}
@@ -27,7 +25,11 @@
         <div class="col-md-6 text-center" class="task">
             {{#each burger_data}}
                 {{#if this.devoured}}
-                    <input class="form-control" type="text" placeholder="{{this.id}}".{{this.burger_name}}>
+                    <div class='burgerEaten'>
+                        <div>
+                        {{this.burger_name}}
+                        </div>
+                    </div>
                 {{/if}}
             {{/each}}
         </div>
@@ -37,8 +39,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center enter_section">
-            <form action="/burgers/create" method="POST">
-                <input type="text" class="form-control" name="burger_name" value="" id="enter_text">
+            <form action="/burgers" method="POST">
+                <input type="text" class="form-control" name="burger_name" value="" id="enter_text" placeholder="Uber Delicious Burger">
                 <button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
             </form>
             <p>Enter a burger you want to eat & Click the submit button</p>

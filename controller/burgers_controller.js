@@ -7,22 +7,22 @@ router.get('/', function(req, res){
 });
 
 router.get('/burgers', function(req, res){
-    burger.all(function(burgerData){
+    burger.selectAll(function(burgerData){
         res.render('index', {burger_data: burgerData});
     });
 });
 
-router.post('/burgers/create', function(req, res){
-    burger.create(req.body.burger_name, function(result){
+router.post('/burgers', function(req, res){
+    burger.insertOne(req.body.burger_name, function(result){
         console.log(result);
         res.redirect('/');
     });
 });
 
 router.put('/burgers/:id', function(req, res){
-    burger.update(res.params.id, function(result){
-        console.log(result);
-        res.sendStatus(200);
+    var condition = 'id =' + req.params.id;
+    burger.updateOne({devoured: true}, condition, function(data){
+        res.redirect('/');
     });
 });
 

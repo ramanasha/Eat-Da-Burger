@@ -10,3 +10,11 @@ This application shows a simple full stack implemented with Node.js, Express and
 <hr />
 
 ![Screen Shot](/public/assets/images/page.PNG)
+
+## Buid with
+<ul>
+  <li> NPM package </li>
+  <li> Node.js </li>
+  <li> Express </li>
+  <li> ORM & MySQL </li>
+  <li> Handlerbars </li>

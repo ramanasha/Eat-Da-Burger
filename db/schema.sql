@@ -4,10 +4,11 @@ CREATE DATABASE burger_db;
 
 USE burger_db;
 
-CREATE TABLE burger 
+CREATE TABLE burgers 
 (
     id INT NOT NULL AUTO_INCREMENT,
     burger_name VARCHAR(255) NOT NULL,
-    devoured boolean NOT NULL,
+    devoured BOOLEAN DEFAULT false,
+    dt DATETIME DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 );
